@@ -6,7 +6,7 @@ Projeto realizado como parte da disciplina de Linguagens Formais e Autômatos na
 
 O CYK Algorithm é um programa que utiliza o algoritmo CYK para verificar se uma determinada cadeia de caracteres pode ser gerada por uma gramática na forma normal de Chomsky. O programa recebe como entrada um arquivo de gramática e uma cadeia, e retorna se a cadeia pode ser gerada pela gramática ou não.
 
-# Como deixar em funcionamento
+# Funcionamento - Testes
 
 - Clone o repositório ou faça o download do arquivo ZIP para o seu diretório local.
 - Acesse a pasta raiz do projeto onde está localizado o arquivo .csproj.
