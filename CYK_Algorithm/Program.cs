@@ -4,6 +4,7 @@ using System.IO;
 
 class CYKAlgorithm
 {
+    // Dicionário para armazenar a gramática
     static Dictionary<string, List<string>> grammar = new Dictionary<string, List<string>>();
 
     static void Main(string[] args)
@@ -17,8 +18,10 @@ class CYKAlgorithm
         string grammarFile = args[0];
         string inputString = args[1];
 
+        // Carrega a gramática a partir do arquivo
         LoadGrammar(grammarFile);
 
+        // Executa o algoritmo CYK na cadeia de entrada
         bool result = CYK(inputString);
         Console.WriteLine("Resultado: " + result);
     }
@@ -27,20 +30,24 @@ class CYKAlgorithm
     {
         try
         {
+            // Lê as linhas do arquivo de gramática
             string[] lines = File.ReadAllLines(fileName);
 
             foreach (string line in lines)
             {
+                // Divide a linha em parte esquerda (não terminal) e produções
                 string[] rule = line.Split(' ');
                 string leftSide = rule[0].Trim();
                 string[] productions = rule[1].Trim().Split('|');
 
                 if (grammar.ContainsKey(leftSide))
                 {
+                    // Se a parte esquerda já está no dicionário, adiciona as produções a ela
                     grammar[leftSide].AddRange(productions);
                 }
                 else
                 {
+                    // Se a parte esquerda não está no dicionário, cria uma nova entrada para ela
                     grammar[leftSide] = new List<string>(productions);
                 }
             }
@@ -66,6 +73,7 @@ class CYKAlgorithm
 
                 foreach (string production in productions)
                 {
+                    // Verifica se a produção é um terminal e coincide com o caractere de entrada
                     if (production.Length == 1 && production[0] == inputString[j])
                     {
                         table[j, 0] = true;
@@ -83,6 +91,7 @@ class CYKAlgorithm
                 {
                     for (int p = 0; p < grammar.Count; p++)
                     {
+                        // Percorre todas as produções possíveis
                         string nonTerminal = grammar.Keys.ElementAt(p);
                         List<string> productions = grammar[nonTerminal];
 
@@ -93,8 +102,10 @@ class CYKAlgorithm
                                 char leftSymbol = production[0];
                                 char rightSymbol = production[1];
 
+                                // Verifica se a tabela CYK contém os valores necessários para essa produção
                                 if (table[i, k] && table[i + k + 1, j - k - 1])
                                 {
+                                    // Verifica se os símbolos esquerdo e direito estão presentes na gramática
                                     if (grammar.ContainsKey(leftSymbol.ToString()) &&
                                         grammar.ContainsKey(rightSymbol.ToString()))
                                     {
@@ -105,6 +116,7 @@ class CYKAlgorithm
                                         {
                                             foreach (string rightProduction in rightProductions)
                                             {
+                                                // Verifica se as produções da esquerda e da direita correspondem aos caracteres de entrada
                                                 if (leftProduction.Length == 1 && rightProduction.Length == 1 &&
                                                     leftProduction[0] == inputString[i + k + 1] &&
                                                     rightProduction[0] == inputString[i])
