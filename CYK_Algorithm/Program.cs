@@ -11,7 +11,7 @@ class CYKAlgorithm
     {
         if (args.Length < 2)
         {
-            Console.WriteLine("Uso: cyk <arquivo_gramatica> <cadeia>");
+            Console.WriteLine("Uso: dotnet run <arquivo_gramatica> <cadeia>");
             return;
         }
 
@@ -89,10 +89,11 @@ class CYKAlgorithm
             {
                 for (int k = 0; k < j; k++)
                 {
-                    for (int p = 0; p < grammar.Count; p++)
+                    // Cria uma lista com os não terminais da gramática
+                    List<string> nonTerminals = new List<string>(grammar.Keys);
+                    for (int p = 0; p < nonTerminals.Count; p++)
                     {
-                        // Percorre todas as produções possíveis
-                        string nonTerminal = grammar.Keys.ElementAt(p);
+                        string nonTerminal = nonTerminals[p];
                         List<string> productions = grammar[nonTerminal];
 
                         foreach (string production in productions)
