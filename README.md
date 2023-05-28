@@ -16,19 +16,18 @@ O CYK Algorithm é um programa que utiliza o algoritmo CYK para verificar se uma
 
 # Testes
 
-- Gramática:
-S -> AB|BC
-A -> BA|a
-B -> CC|b
-C -> AB|a
+Gramática:
+- S -> AB|BC
+- A -> BA|a
+- B -> CC|b
+- C -> AB|a
 
-- Cadeias / Resultado:
-
-abba  / True
-bccb  / False
-baaa  / True
-aabbb / True
-abc   / False
+Cadeias / Resultado:
+- abba  / True
+- bccb  / False
+- baaa  / True
+- aabbb / True
+- abc   / False
 
 # Tecnologias utilizadas
 
