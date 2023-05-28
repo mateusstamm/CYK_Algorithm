@@ -10,8 +10,8 @@ O CYK Algorithm é um programa que utiliza o algoritmo CYK para verificar se uma
 
 - Clone o repositório ou faça o download do arquivo ZIP para o seu diretório local.
 - Acesse a pasta raiz do projeto onde está localizado o arquivo .csproj.
-- Execute o comando "dotnet run gramatica.txt <cadeia>" no terminal para compilar e executar o programa.
-- ***Substitua gramatica.txt pelo caminho e nome do arquivo de gramática desejado (caso queira algum diferente do padrão), e <cadeia> pela cadeia que você deseja testar.
+- Execute o comando "dotnet run gramatica.txt [cadeia]" no terminal para compilar e executar o programa.
+- ***Substitua gramatica.txt pelo caminho e nome do arquivo de gramática desejado (caso queira algum diferente do padrão), e [cadeia] pela cadeia que você deseja testar.
 
 # Tecnologias utilizadas
 
