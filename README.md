@@ -1,4 +1,4 @@
-# CYK Resulter - UTFPR - LFA 2023/1
+# **CYK Resulter - UTFPR - LFA 2023/1**
 
 Projeto realizado como parte da disciplina de Linguagens Formais e Autômatos na UTFPR, ministrada pelo professor Evando Carlos Pessini. O objetivo do projeto é implementar um tradutor de cadeias utilizando o algoritmo CYK (Cocke-Younger-Kasami) para gramáticas na forma normal de Chomsky.
 
